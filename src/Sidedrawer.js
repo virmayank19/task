@@ -3,14 +3,16 @@ import {Drawer,Toolbar,Typography} from "@material-ui/core";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
+import CreateIcon from '@material-ui/icons/Create';
 import List from '@material-ui/core/List';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
+import LockIcon from '@material-ui/icons/Lock';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import DescriptionIcon from '@material-ui/icons/Description';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import Avatar from '@material-ui/core/Avatar';
+import imageurl from "./logo1.png"
 
 const drawerWidth = 240;
 
@@ -18,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
       },
-    appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -45,27 +44,15 @@ const useStyles = makeStyles((theme) => ({
       width: 'auto',
     },
   },
+  logo:{
+    width:240,
+  }
 }));
 
 const Sidedrawer = () => {
     const classes = useStyles();
-
     return (
-        <div className={classes.root}>
-        <CssBaseline />
-        <AppBar position="fixed" color="white" className={classes.appBar}>
-          <Toolbar>
-            <Typography variant="h6" noWrap>
-              luxx
-            </Typography>
-            <div className={classes.searchbar}>
-                <SearchIcon/>
-                <InputBase placeholder="search contacts,projects,invoices,tasks or categories "/>
-            </div>
-           
-          </Toolbar>
-        </AppBar>
-      
+        <div className={classes.root}>      
         <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -73,16 +60,52 @@ const Sidedrawer = () => {
           paper: classes.drawerPaper,
         }}
       >
-        <Toolbar />
-        <div className={classes.drawerContainer}>
-          <List>
-            {['Dashboard', 'Contacts', 'Projects', 'Invoices','Modules','Categories','log-out'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
+          <div>
+            <ListItem>
+              <Avatar alt="Remy Sharp" src={imageurl} variant="square" className={classes.logo}/>
+            </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <PermContactCalendarIcon />
+            </ListItemIcon>
+            <ListItemText primary="Contact" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <DescriptionIcon />
+            </ListItemIcon>
+            <ListItemText primary="Projects" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <DescriptionIcon />
+            </ListItemIcon>
+            <ListItemText primary="Invoices" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <ViewModuleIcon />
+            </ListItemIcon>
+            <ListItemText primary="Modules" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <CreateIcon />
+            </ListItemIcon>
+            <ListItemText primary="Categories" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <LockIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log Out" />
+          </ListItem>
         </div>
       </Drawer>
       </div>
