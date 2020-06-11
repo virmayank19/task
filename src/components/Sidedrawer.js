@@ -13,6 +13,7 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import Avatar from '@material-ui/core/Avatar';
 import imageurl from "./logo1.png"
+import {Link} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -64,42 +65,61 @@ const Sidedrawer = () => {
             <ListItem>
               <Avatar alt="Remy Sharp" src={imageurl} variant="square" className={classes.logo}/>
             </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
+
+            <Link to="/">
+              <ListItem button>
+                <ListItemIcon>
+                  <DashboardIcon />
+              </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItem>
+          </Link>
+          
+          <Link to="/contacts">
           <ListItem button>
             <ListItemIcon>
               <PermContactCalendarIcon />
             </ListItemIcon>
             <ListItemText primary="Contact" />
           </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <DescriptionIcon />
-            </ListItemIcon>
-            <ListItemText primary="Projects" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <DescriptionIcon />
-            </ListItemIcon>
-            <ListItemText primary="Invoices" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <ViewModuleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Modules" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <CreateIcon />
-            </ListItemIcon>
-            <ListItemText primary="Categories" />
-          </ListItem>
+          </Link>
+          
+          <Link to="/projects">
+            <ListItem button>
+              <ListItemIcon>
+                <DescriptionIcon />
+              </ListItemIcon>
+              <ListItemText primary="Projects" />
+            </ListItem>
+          </Link>
+
+          <Link to="/invoices">
+            <ListItem button>
+              <ListItemIcon>
+                <DescriptionIcon />
+              </ListItemIcon>
+              <ListItemText primary="Invoices" />
+            </ListItem>
+          </Link>
+          
+          <Link to="/modules">
+            <ListItem button>
+              <ListItemIcon>
+                <ViewModuleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Modules" />
+            </ListItem>
+          </Link>
+          
+          <Link to="/categories">
+            <ListItem button>
+              <ListItemIcon>
+                <CreateIcon />
+              </ListItemIcon>
+              <ListItemText primary="Categories" />
+            </ListItem>
+          </Link>
+
           <ListItem button>
             <ListItemIcon>
               <LockIcon />

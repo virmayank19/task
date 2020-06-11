@@ -5,9 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Overview from './Overview'
-import Projects from './Projects'
+import Projects from './DashboardProjects'
 import Wallet from './Wallet'
 import { Toolbar } from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 3),
   },
   typoproject: {
-
+    color:grey[500],
     marginLeft: 10,
-    paddingTop:40,
+    paddingTop:20,
+    paddingBottom:10,
   },
 }));
 
@@ -31,7 +33,7 @@ const message = `1234. `;
 
   return (
     <div className={classes.root}>
-      <Typography >Overview</Typography>
+      <Typography className={classes.typoproject}>Overview</Typography>
         <Overview/>
       
       <Grid  container spacing={4}>
